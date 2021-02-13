@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/posts', function () {
    return view('posts.index');
 });
+/**
+ * Registration
+ */
+Route::get('/register', [RegisterController::class,'index'])->name('register');
+/**
+ * Adding new user to database
+ */
+Route::post('/register', [RegisterController::class,'store']);
