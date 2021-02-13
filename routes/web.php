@@ -34,7 +34,9 @@ Route::get('/', function () {
 /**
  * User dashboard page
  */
-Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class,'index'])
+->name('dashboard')
+->middleware('auth');
 
 
 /**
