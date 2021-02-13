@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <title>Corkboard</title>
 </head>
+
 <body class='bg-gray-200'>
     <nav class="p-6 bg-white flex justify-between mb-6">
         <ul class="flex items-center">
@@ -23,20 +25,28 @@
         </ul>
         <!--User details-->
         <ul class="flex items-center">
+            @if(auth()->user())
             <li>
                 <a href="" class="p-3">Name</a>
             </li>
             <li>
-                <a href="" class="p-3">Login</a>
+                <a href="" class="p-3">Logout</a>
+            </li>
+            @else
+            <li>
+                <a href="{{route('login')}}" class="p-3">Login</a>
             </li>
             <li>
                 <a href="{{ route('register')}}" class="p-3">Register</a>
             </li>
-            <li>
-                <a href="" class="p-3">Logout</a>
-            </li>
+            @endif
+
+
+
+
         </ul>
     </nav>
-        @yield('content')
+    @yield('content')
 </body>
+
 </html>
