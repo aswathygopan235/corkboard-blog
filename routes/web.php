@@ -8,9 +8,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostLikeController;
-
-
-
+use App\Http\Controllers\UserPostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,6 +43,9 @@ Route::get('/register', [RegisterController::class,'index'])->name('register');
  * Adding new user to database
  */
 Route::post('/register', [RegisterController::class,'store']);
+
+Route::get('/users/{user:username}/posts',[UserPostController::class,'index'])->name('users.posts');
+
 
 /**
  * Login
