@@ -14,6 +14,12 @@ class Post extends Model
       
     ];
 
+    public function likedBy(User $user){
+
+        return $this->likes->contains('user_id',$user->id);
+
+    }
+
     public function user(){
         return $this->belongsTo(User::class);
     }
@@ -21,3 +27,6 @@ class Post extends Model
         return $this->hasMany(Like::class);
     }
 }
+/**
+ * All the relationships between other models and special checks for database is done in models
+ */
