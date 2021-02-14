@@ -28,6 +28,7 @@
         @else
         <div class="mb-4">There are no posts</div>
         @endif
+        {{$posts->links()}}
 
     </div>
 </div>
