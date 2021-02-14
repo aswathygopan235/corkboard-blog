@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
    public function index(){
-       return view('posts.index');
+       $posts=Post::get();
+       return view('posts.index',[
+           'posts'=>$posts
+       ]);
    }
 
    public function store(Request $request){
@@ -19,6 +22,9 @@ class PostController extends Controller
         //     'user_id'=>auth()->user()->id(),
         //     'body'=>$request->body,
         // ]);
-        auth()->user()->posts()->create();
+        auth()->user()->posts()->create([
+            'body'=>$request->body
+        ]);
+        return back();
    }
 }
