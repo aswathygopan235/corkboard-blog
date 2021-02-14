@@ -31,19 +31,24 @@
                         <button type="submit" class="text-blue-500">Like</button>
                     </form>
                 @else
+               
                     <form action="{{route('posts.likes',$post)}}" method="post" class="mr-1">
                     @csrf
                     @method('DELETE')
                         <button type="submit" class="text-blue-500">Unlike</button>
                     </form> 
-                    @endif 
+                @endif
+                    
+                    
+                    @can('delete',$post)
                     <form action="{{ route('posts.destroy',$post)}}" method="post" class="mr-1">
                     @csrf
                    
                
                 @method('DELETE')
                         <button type="submit" class="text-red-500">Delete post</button>
-                    </form>
+                    </form> 
+                @endcan
                 @endauth
                     {{$post->likes->count()}} {{Str::plural('like',$post->likes->count())}}
                
