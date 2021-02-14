@@ -5,7 +5,7 @@
         <div class="p-4">
             <h1 class="text-2xl font-medium mb-1">{{$user->name}}</h1>
             <p>Posted {{$posts->count()}} {{Str::plural('post',$posts->count())}} and received 
-            x likes
+            {{$user->receivedLikes->count()}} likes
             </p>
    
         </div>
