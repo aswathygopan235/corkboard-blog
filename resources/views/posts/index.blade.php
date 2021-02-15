@@ -3,6 +3,7 @@
 <div class="flex justify-center">
     <div class="w-8/12 bg-white p-6 rounded-lg ">
         Posts
+        @auth
         <form action="{{route('posts')}}" method="post" class="mb-4">
         @csrf
             <div class="mb-4">
@@ -18,6 +19,7 @@
             </div>
             </div>
         </form>
+        @endauth
         @if($posts->count())
             @foreach($posts as $post)
             <x-post :post="$post"/>
